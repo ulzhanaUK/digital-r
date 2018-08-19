@@ -43,7 +43,7 @@ body {
   height: 700px;
 }
 .container {
-  width: 99%;
+  width: 100%;
   border: 1px solid blue;
 }
 </style>
