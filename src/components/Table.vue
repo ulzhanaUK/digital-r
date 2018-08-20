@@ -6,19 +6,30 @@
     <img style=" width:120px; padding:15px " src="../assets/road.svg">
     </th>
     <th colspan="2">
-    <h5 align="left"><small>Astana</small></h5>
+    <div id="app" v-cloak>
+		<div v-if="loading">
+			<h5>Loading...</h5>
+		</div>
+		<div style="color:white;" id="content" v-else>
+			<h5 style="float: left; vertical-align: top;" class="a"><small>{{location}}</small></h5>
+			<p>
+				<h4 style="color:white;" class="temp">{{temp}}&deg;</h4>
+        <span class="a" style="float: right; padding: 5px; vertical-align: top;"><small>{{desc}}</small></span>
+			</p>
+		</div>
+	</div>
     </th>
     <th>
-    <a><h5><small>ШИРОТА</small></h5>
-    <span style="color: white;">{{ lat }}</span></a>
+    <h5><small>ШИРОТА</small></h5>
+    <h4 style="color: white;"><center>{{ dbResult[dbResult.length-1]["lat"] }}</center></h4>
   </th>
     <th style="color: #6621ca;">
     <h5><small>ДОЛГОТА</small></h5>
-    <h4 style="color: white; ">{{ lon }}</h4>
+    <h4 style="color: white; "><center>{{ dbResult[dbResult.length-1]["lon"] }}</center></h4>
   </th>
     <td style="color: #6621ca;">
     <h5><small>СКОРОСТЬ</small></h5>
-    <h4 style="color: white; ">{{skorost}} км/час</h4>
+    <h4 style="color: white; "><center>{{skorost}} км/час</center></h4>
     </td>
   </tr uk-cover>
   <tr>
@@ -28,19 +39,19 @@
 </tr uk-cover>
   <tr>
     <th rowspan="2" colspan="2" style="color: #6621ca;">
-    <a><small>УРОВЕНЬ
-    <span style="color:green;">МАЛЕНЬКАЯ ЯМА</span></small></a>
-    <h1 style="color: white;"><center><big>{{level}}</big></center></h1>
+    <h5 class="a"><small>УРОВЕНЬ</small></h5>
+    <span class="a" style="color:green; float: right"><small>МАЛЕНЬКАЯ ЯМА</small></span>
+    <h1 style="color: white;"><center><big>{{ dbResult[dbResult.length-1]['level'] }}</big></center></h1>
     </th>
     <td>
-    <a><small>ШИРИНА
-    <span>CM</span></small></a>
-    <h2 style="color: white;">{{width}}</h2>
+    <h5 class="a"><small>ШИРИНА</small></h5>
+    <span class="a" style="float: right;"><small>CM</small></span>
+    <h2 style="color: white;"><center>{{ dbResult[dbResult.length-1]['width'] }}</center></h2>
     </td>
     <td>
-    <a><small>ДЛИНА
-    <span>CM</span></small></a>
-    <h2 style="color: white;">{{length}}</h2>
+    <h5 class="a"><small>ДЛИНА</small></h5>
+    <span class="a" style="float: right;"><small>CM</small></span>
+    <h2 style="color: white;"><center>{{length}}</center></h2>
     </td>
     <th rowspan="2" style="color: #6621ca;">
     <h6><small>ВСЕГО В ГОРОДЕ</small></h6>
@@ -48,31 +59,31 @@
     </th>
     <td style="color: #6621ca;">
     <h5><small>Р-Н "АЛМАТЫ"</small></h5>
-    <h2 style="color: white;">{{almaty}}</h2>
+    <h2 style="color: white;"><center>{{almaty}}</center></h2>
     </td>
     <td style="color: #6621ca;">
     <h5><small>Р-Н "САРЫАРКА"</small></h5>
-    <h2 style="color: white;">{{saryarka}}</h2>
+    <h2 style="color: white;"><center>{{saryarka}}</center></h2>
     </td>
   </tr>
   <tr>
     <td style="color: #6621ca;">
-    <a><small>ГЛУБИНА
-    <span>CM</span></small></a>
-    <h2 style="color: white;">{{depth}}</h2>
+    <h5 class="a"><small>ГЛУБИНА</small></h5>
+    <span class="a" style="float: right;"><small>CM</small></span>
+    <h2 style="color: white;"><center>{{depth}}</center></h2>
     </td>
     <td style="color: #6621ca;">
-    <a><small>ОБЪЕМ
-    <span>CM^3</span></small></a>
-    <h2 style="color: white;">{{volume}}</h2>
+    <h5 class="a"><small>ОБЪЕМ</small></h5>
+    <span class="a" style="float: right;"><small>CM^3</small></span>
+    <h2 style="color: white;"><center>{{volume}}</center></h2>
     </td>
     <td style="color: #6621ca;">
     <h5><small>Р-Н "ЕСИЛЬ"</small></h5>
-    <h2 style="color: white;">{{esyl}}</h2>
+    <h2 style="color: white;"><center>{{esyl}}</center></h2>
     </td>
     <td style="color: #6621ca;">
     <h5><small>Р-Н "БАЙКОНЫР"</small></h5>
-    <h2 style="color: white;">{{baykonyr}}</h2>
+    <h2 style="color: white;"><center>{{baykonyr}}</center></h2>
     </td>
   </tr>
   <tr>
@@ -86,50 +97,50 @@
       <h1 style="color: white;"><center><big>{{moneyall}}</big></center></h1>
       </th>
       <td style="color: #6621ca;">
-      <a><small>ШЕБЕНЬ
-      <span>КГ</span></small></a>
-      <h2 style="color: white;">{{shiben}}</h2>
+      <h5 class="a"><small>ШЕБЕНЬ</small></h5>
+      <span class="a" style="float: right;"><small>КГ</small></span>
+      <h2 style="color: white;"><center>{{shiben}}</center></h2>
       </td>
       <td style="color: #6621ca;">
-      <a><small>ПЕСОК
-      <span>КГ</span></small></a>
-      <h2 style="color: white;">{{sand}}</h2>
+      <h5 class="a"><small>ПЕСОК</small></h5>
+      <span class="a" style="float: right;"><small>КГ</small></span>
+      <h2 style="color: white;"><center>{{sand}}</center></h2>
       </td>
       <th rowspan="2" style="color: #6621ca;">
       <h6><small>ВРЕМЯ В ПУТИ</small></h6>
       <h1 style="color: white;"><center><big>{{timeroad}}</big></center></h1>
       </th>
       <td style="color: #6621ca;">
-      <a><small>БЕНЗИН
-      <span>Л</span></small></a>
-      <h2 style="color: white;">{{benzin}}</h2>
+      <h5 class="a"><small>БЕНЗИН</small></h5>
+      <span class="a" style="float: right;"><small>Л</small></span>
+      <h2 style="color: white;"><center>{{benzin}}</center></h2>
       </td>
       <td style="color: #6621ca;">
-      <a><small>ДИСТАНЦИЯ
-      <span>КМ</span></small></a>
-      <h2 style="color: white;">{{road}}</h2>
+      <h5 class="a"><small>ДИСТАНЦИЯ</small></h5>
+      <span class="a" style="float: right;"><small>КМ</small></span>
+      <h2 style="color: white;"><center>{{road}}</center></h2>
       </td>
     </tr>
     <tr>
       <td style="color: #6621ca;">
-      <a><small>БИТУМ
-      <span>Л</span></small></a>
-      <h2 style="color: white;">{{bitumen}}</h2>
+      <h5 class="a"><small>БИТУМ</small></h5>
+      <span class="a" style="float: right;"><small>Л</small></span>
+      <h2 style="color: white;"><center>{{bitumen}}</center></h2>
       </td>
       <td style="color: #6621ca;">
-      <a><small>ЛЮДИ
-      <span>ЧЕЛ.</span></small></a>
-      <h2 style="color: white;">{{human}}</h2>
+      <h5 class="a"><small>ЛЮДИ</small></h5>
+      <span class="a" style="float: right;"><small>ЧЕЛ.</small></span>
+      <h2 style="color: white;"><center>{{human}}</center></h2>
       </td>
       <td style="color: #6621ca;">
-      <a><small>ЗАРЯД БАТАРЕИ
-      <span>%</span></small></a>
-      <h2 style="color: white;">{{battery}}</h2>
+      <h5 class="a"><small>ЗАРЯД БАТАРЕИ</small></h5>
+      <span class="a" style="float: right;"><small>%</small></span>
+      <h2 style="color: white;"><center>{{battery}}</center></h2>
       </td>
       <td style="color: #6621ca;">
-      <a><small>ДАТЧИКИ
-      <span>ШТ</span></small></a>
-      <h2 style="color: white;">{{datchik}}</h2>
+      <h5 class="a"><small>ДАТЧИКИ</small></h5>
+      <span class="a" style="float: right;"><small>ШТ</small></span>
+      <h2 style="color: white;"><center>{{datchik}}</center></h2>
       </td>
     </tr>
   </tr>
@@ -138,14 +149,9 @@
 </template>
 <script type="text/javascript">
 export default {
-  props: [
-    'username'
-  ],
   data () {
     return {
       dbResult: {},
-      lat: [],
-      lon: [],
       skorost: '60',
 
       level: '2',
@@ -170,30 +176,63 @@ export default {
       benzin: '27',
       battery: '99%',
       road: '130',
-      datchik: '40'
+      datchik: '40',
+      loading:true,
+		lat:null,
+		lon:null,
+		location:null,
+		temp:null
     }
   },
   created() {
-  	  let api="https://insta1-copy.firebaseio.com/users.json"
+  	  let api="http://localhost:3000/images"
   	  this.axios.get(api).then((response) => {
   		this.dbResult = response.data
-})
-   }
+});
+navigator.geolocation.getCurrentPosition(pos => {
+			console.log('got coordinates', pos.coords);
+			this.lat = pos.coords.latitude;
+			this.lon = pos.coords.longitude;
+			this.loadWeather();
+		});
+  },
+  methods:{
+		loadWeather() {
+
+			axios.get(`https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(SELECT%20woeid%20FROM%20geo.places%20WHERE%20text%3D%22(${this.lat}%2C${this.lon})%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys`)
+			.then(res => {
+				let weather = res.data.query.results.channel;
+				console.log('response',weather);
+
+				this.location = weather.location.city + ", " + weather.location.region;
+				this.temp = weather.item.condition.temp;
+				this.desc = weather.item.condition.text;
+				this.loading = false;
+
+			})
+			.catch(e => {
+				console.error(e);
+			});
+
+		}
+	}
 }
 </script>
 <style>
 body {
   background: black;
-  height: 750px;
+  height: 650px;
 }
 html{
-  line-height: 4;
+  line-height: 1;
 }
 h5, a, h6 {
+top: 0;
 color: #6621ca;
-font-family: PF Din Text Cond Pro;
+font-family: Arial, sans-serif;
 }
-h6, h4, h5, h3, h1, h2 {
+h6, h4, h5, h3, h1, h2, .a {
+    top:0;
     padding: 5px;
     margin-top: 0px;
     margin-bottom: 0px;
@@ -207,12 +246,13 @@ h6, h4, h5, h3, h1, h2 {
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media (max-width: 600px) {
     .column {
-        width: 100%;
+        width: 99%;
     }
 }
 h3 {
+  vertical-align: top;
   color: #eca74c;
-  font-family: PF Din Text Cond Pro Thin;
+  font-family: Arial, sans-serif;
 }
 .left {
     position: absolute;
@@ -223,18 +263,22 @@ h3 {
     left: 0;
     text-align: center;
 }
+[v-cloak] {display: none};
 table, th, td {
     border: 1px solid #6621ca;
     border-collapse: collapse;
 }
 th, td {
     padding: 0px;
-    text-align: left;
+    vertical-align: top;
 }
 span {
   color: grey;
   font-family: PF Din Text Cond Pro;
 
+}
+span .a {
+  display: inline;
 }
 
 </style>

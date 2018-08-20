@@ -40,7 +40,6 @@ export default {
 <style scoped>
 body {
   background: black;
-  height: 700px;
 }
 .container {
   width: 100%;

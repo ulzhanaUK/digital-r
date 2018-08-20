@@ -1,7 +1,7 @@
 <template>
   <div class="columns">
     <div class="column">
-<div id="map" style="width: 100%; height: 420px"></div>
+<div id="map" style="width: 99%; height: 420px"></div>
 </div>
 <div class="column">
 <table style="width:100%; height:190px;">
@@ -18,7 +18,7 @@
 
   </td>
       <th rowspan="2" style="width:20%" align="right">
-        <iframe src="https://www.youtube-nocookie.com/embed/i37uKnyen2o?autoplay=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1" width="200" height="113" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
+        <img width="100%" src="../assets/pit1.jpg">
       </th>
     </tr>
     <tr>
@@ -41,7 +41,16 @@
 </template>
 <script>
 export default {
+  data () {
+    return {
+      dbHoles: {},
+    }
+  },
   created() {
+    let api="http://localhost:3000/images"
+    this.axios.get(api).then((response) => {
+    this.dbHoles = response.data
+  });
     ymaps.ready(init);
         function init(){
             // Создание карты.
@@ -68,16 +77,16 @@ export default {
 
             var myGeoObjects = [];
 
-            myGeoObjects[0] = new ymaps.Placemark([51.15772356, 71.47335987],{
+            myGeoObjects[0] = new ymaps.Placemark([51.1577235, 71.47335987],{
                                     clusterCaption: 'Яма 1',
                             //balloonContentBody: 'Текст в балуне',
-                            balloonContentBody: 'Размер: 1rwwdzdfdfsdfsdfsd m^2, глубина: 15 cm'
+                            balloonContentBody: 'Размер: 1m^2, глубина: 15 cm'
                                     },{
                                     // Необходимо указать данный тип макета.
                                     iconLayout: 'default#image',
                                     iconImageHref: 'https://www.camile.ie/wordpress/wp-content/themes/camile/assets/images/site/location-pointer-purple.png',
                                     // Размеры метки.
-                                    iconImageSize: [20, 30],
+                                    iconImageSize: [15, 20],
                                     // Смещение левого верхнего угла иконки относительно
                                     // её «ножки» (точки привязки).
                                     iconImageOffset: [-3, -42],
@@ -92,14 +101,14 @@ export default {
                                     iconLayout: 'default#image',
                                     iconImageHref: 'https://www.camile.ie/wordpress/wp-content/themes/camile/assets/images/site/location-pointer-purple.png',
                                     // Размеры метки.
-                                    iconImageSize: [20, 30],
+                                    iconImageSize: [15, 20],
                                     // Смещение левого верхнего угла иконки относительно
                                     // её «ножки» (точки привязки).
                                     iconImageOffset: [-23, -42],
 
                     });
 
-            myGeoObjects[2] = new ymaps.Placemark([51.15912315, 71.48391705],{
+            myGeoObjects[2] = new ymaps.Placemark([51.1591231, 71.48391705],{
                                     clusterCaption: 'Яма 3',
                                     //balloonContentBody: 'Текст в балуне',
                                     balloonContentBody: 'Размер: 3 m^2, глубина: 15 cm'
@@ -108,7 +117,7 @@ export default {
                                     iconLayout: 'default#image',
                                     iconImageHref: 'https://www.camile.ie/wordpress/wp-content/themes/camile/assets/images/site/location-pointer-purple.png',
                                     // Размеры метки.
-                                    iconImageSize: [20, 30],
+                                    iconImageSize: [15, 20],
                                     // Смещение левого верхнего угла иконки относительно
                                     // её «ножки» (точки привязки).
                                     iconImageOffset: [-16, -42],
@@ -122,7 +131,7 @@ export default {
                                     iconLayout: 'default#image',
                                     iconImageHref: 'https://www.camile.ie/wordpress/wp-content/themes/camile/assets/images/site/location-pointer-purple.png',
                                     // Размеры метки.
-                                    iconImageSize: [20, 30],
+                                    iconImageSize: [15, 20],
                                     // Смещение левого верхнего угла иконки относительно
                                     // её «ножки» (точки привязки).
                                     iconImageOffset: [-16, -42],
@@ -136,12 +145,12 @@ export default {
                                     iconLayout: 'default#image',
                                     iconImageHref: 'https://www.camile.ie/wordpress/wp-content/themes/camile/assets/images/site/location-pointer-purple.png',
                                     // Размеры метки.
-                                    iconImageSize: [20, 30],
+                                    iconImageSize: [15, 20],
                                     // Смещение левого верхнего угла иконки относительно
                                     // её «ножки» (точки привязки).
                                     iconImageOffset: [-16, -42],
                     });
-            myGeoObjects[5] = new ymaps.Placemark([51.12724632183351, 71.48198585365235],{
+            myGeoObjects[5] = new ymaps.Placemark([51.147873, 71.679614],{
                                     clusterCaption: 'Яма 3',
                                     //balloonContentBody: 'Текст в балуне',
                                     balloonContentBody: 'Размер: 3 m^2, глубина: 15 cm'
@@ -150,13 +159,43 @@ export default {
                                     iconLayout: 'default#image',
                                     iconImageHref: 'https://www.camile.ie/wordpress/wp-content/themes/camile/assets/images/site/location-pointer-purple.png',
                                     // Размеры метки.
-                                    iconImageSize: [20, 30],
+                                    iconImageSize: [15, 20],
                                     // Смещение левого верхнего угла иконки относительно
                                     // её «ножки» (точки привязки).
                                     iconImageOffset: [-16, -42],
                     });
 
+         var pushed = myGeoObjects.push(
+            new ymaps.Placemark([51.12724632183351, 71.48198585365235],{
+                                   clusterCaption: 'Яма 3',
+                                   balloonContentBody: 'Текст в балуне',
+                                   balloonContentBody: 'Размер: 3 m^2, глубина: 15 cm'
+                                   },{
+                                    //Необходимо указать данный тип макета.
+                                   iconLayout: 'default#image',
+                                   iconImageHref: 'https://www.camile.ie/wordpress/wp-content/themes/camile/assets/images/site/location-pointer-purple.png',
+                                    //Размеры метки.
+                                   iconImageSize: [15, 20],
+                                    //Смещение левого верхнего угла иконки относительно
+                                    //её «ножки» (точки привязки).
+                                   iconImageOffset: [-16, -42],
+                   }),
+                   new ymaps.Placemark([51.13895901, 71.46161346],{
+                                          clusterCaption: 'Яма 3',
+                                          balloonContentBody: 'Текст в балуне',
+                                          balloonContentBody: 'Размер: 3 m^2, глубина: 15 cm'
+                                          },{
+                                          // Необходимо указать данный тип макета.
+                                          iconLayout: 'default#image',
+                                          iconImageHref: 'https://www.camile.ie/wordpress/wp-content/themes/camile/assets/images/site/location-pointer-purple.png',
+                                          // Размеры метки.
+                                          iconImageSize: [20, 30],
+                                          // Смещение левого верхнего угла иконки относительно
+                                          // её «ножки» (точки привязки).
+                                          iconImageOffset: [-16, -42],
+                          })
 
+         )
 
        var clusterer = new ymaps.Clusterer({
             clusterDisableClickZoom: false,
@@ -188,14 +227,13 @@ export default {
             //  var coords = e.get('coords');
             //  alert(coords.join(', ')+ "Hello pit :)");
             //});
-          }
+    }
   }
 }
 </script>
 <style>
 body {
   background: black;
-  height: 700px;
 }
 .row:after {
     content: "";
