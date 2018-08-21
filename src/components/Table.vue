@@ -12,8 +12,8 @@
 		</div>
 		<div v-else>
 			<h5 style="float: left; vertical-align: top;" class="a"><small>{{location}}</small></h5>
-      <span class="a" style="float: right; color:green; padding: 5px; vertical-align: top;"><small>{{desc}}</small></span>
-			<h2 style="color:white; vertical-align:bottom">{{temp}}&deg;</h2>
+      <span class="a" style="float: right; color:green; padding: 10px; vertical-align: top;"><small>{{desc}}</small></span>
+			<h2 style="color:white; vertical-align:bottom;">{{temp}}&deg;</h2>
 		</div>
 	</div>
     </th>
@@ -38,17 +38,17 @@
   <tr>
     <th rowspan="2" colspan="2" style="color: #6621ca;">
     <h5 class="a"><small>УРОВЕНЬ</small></h5>
-    <span class="a" style="color:green; float: right"><small>МАЛЕНЬКАЯ ЯМА</small></span>
+    <span class="a" style="color:green; float: right; padding: 10px;"><small>МАЛЕНЬКАЯ ЯМА</small></span>
     <h1 style="color: white; font-size:600%;"><center><big>{{ level }}</big></center></h1>
     </th>
     <td>
     <h5 class="a"><small>ШИРИНА</small></h5>
-    <span class="a" style="float: right;"><small>CM</small></span>
+    <span class="a" style="float: right; padding: 10px;"><small>CM</small></span>
     <h2 style="color: white;"><center>{{ width }}</center></h2>
     </td>
     <td>
     <h5 class="a"><small>ДЛИНА</small></h5>
-    <span class="a" style="float: right;"><small>CM</small></span>
+    <span class="a" style="float: right; padding: 10px;"><small>CM</small></span>
     <h2 style="color: white;"><center>{{length}}</center></h2>
     </td>
     <th rowspan="2" style="color: #6621ca;">
@@ -67,12 +67,12 @@
   <tr>
     <td style="color: #6621ca;">
     <h5 class="a"><small>ГЛУБИНА</small></h5>
-    <span class="a" style="float: right;"><small>CM</small></span>
+    <span class="a" style="float: right; padding: 10px;"><small>CM</small></span>
     <h2 style="color: white;"><center>{{depth}}</center></h2>
     </td>
     <td style="color: #6621ca;">
     <h5 class="a"><small>ОБЪЕМ</small></h5>
-    <span class="a" style="float: right;"><small>CM^3</small></span>
+    <span class="a" style="float: right; padding: 10px;"><small>CM^3</small></span>
     <h2 style="color: white;"><center>{{volume}}</center></h2>
     </td>
     <td style="color: #6621ca;">
@@ -96,12 +96,12 @@
       </th>
       <td style="color: #6621ca;">
       <h5 class="a"><small>ШЕБЕНЬ</small></h5>
-      <span class="a" style="float: right;"><small>КГ</small></span>
+      <span class="a" style="float: right; padding: 10px;"><small>КГ</small></span>
       <h2 style="color: white;"><center>{{shiben}}</center></h2>
       </td>
       <td style="color: #6621ca;">
       <h5 class="a"><small>ПЕСОК</small></h5>
-      <span class="a" style="float: right;"><small>КГ</small></span>
+      <span class="a" style="float: right; padding: 10px;"><small>КГ</small></span>
       <h2 style="color: white;"><center>{{sand}}</center></h2>
       </td>
       <th rowspan="2" style="color: #6621ca;">
@@ -110,34 +110,34 @@
       </th>
       <td style="color: #6621ca;">
       <h5 class="a"><small>БЕНЗИН</small></h5>
-      <span class="a" style="float: right;"><small>Л</small></span>
+      <span class="a" style="float: right; padding: 10px;"><small>Л</small></span>
       <h2 style="color: white;"><center>{{benzin}}</center></h2>
       </td>
       <td style="color: #6621ca;">
       <h5 class="a"><small>ДИСТАНЦИЯ</small></h5>
-      <span class="a" style="float: right;"><small>КМ</small></span>
+      <span class="a" style="float: right; padding: 10px;"><small>КМ</small></span>
       <h2 style="color: white;"><center>{{road}}</center></h2>
       </td>
     </tr>
     <tr>
       <td style="color: #6621ca;">
       <h5 class="a"><small>БИТУМ</small></h5>
-      <span class="a" style="float: right;"><small>Л</small></span>
+      <span class="a" style="float: right; padding: 10px;"><small>Л</small></span>
       <h2 style="color: white;"><center>{{bitumen}}</center></h2>
       </td>
       <td style="color: #6621ca;">
       <h5 class="a"><small>ЛЮДИ</small></h5>
-      <span class="a" style="float: right;"><small>ЧЕЛ.</small></span>
+      <span class="a" style="float: right; padding: 10px;"><small>ЧЕЛ.</small></span>
       <h2 style="color: white;"><center>{{human}}</center></h2>
       </td>
       <td style="color: #6621ca;">
       <h5 class="a"><small>ЗАРЯД БАТАРЕИ</small></h5>
-      <span class="a" style="float: right;"><small>%</small></span>
+      <span class="a" style="float: right; padding: 10px;"><small>%</small></span>
       <h2 style="color: white;"><center>{{battery}}</center></h2>
       </td>
       <td style="color: #6621ca;">
       <h5 class="a"><small>ДАТЧИКИ</small></h5>
-      <span class="a" style="float: right;"><small>ШТ</small></span>
+      <span class="a" style="float: right; padding: 10px;"><small>ШТ</small></span>
       <h2 style="color: white;"><center>{{datchik}}</center></h2>
       </td>
     </tr>
@@ -219,7 +219,7 @@ export default {
 <style>
 body {
   background: black;
-  height: 700px;
+
 }
 html{
   line-height: 0.5;
@@ -230,17 +230,17 @@ color: #6621ca;
 font-family: Arial Narrow, sans-serif;
 }
 h6, h4, h5, h3, h1, h2, .a {
-    top:0;
     padding: 5px;
     margin-top: 0;
-    margin-bottom: 0px;
     font-family: Arial Narrow, sans-serif;
 }
 h1 {
   font-size: 500%;
+  margin-top: 30px;
 }
 h2 {
   font-size: 300%;
+  bottom: 100px;
 }
 /* Clear floats after the columns */
 .row:after {
@@ -278,7 +278,7 @@ th, td {
 }
 span {
   color: grey;
-  font-family: Arial Narrow, sans-serif
+  font-family: Arial Narrow, sans-serif;
 
 }
 span .a {
