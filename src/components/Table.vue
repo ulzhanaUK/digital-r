@@ -3,50 +3,48 @@
 <table style="width:100%; height:450px;">
 <tr>
     <th colspan="2">
-    <img style=" width:120px; padding:15px " src="../assets/road.svg">
+    <img align="center" style="width:220px; padding:20px " src="../assets/road.svg">
     </th>
     <th colspan="2">
     <div id="app" v-cloak>
 		<div v-if="loading">
 			<h5>Loading...</h5>
 		</div>
-		<div style="color:white;" id="content" v-else>
+		<div v-else>
 			<h5 style="float: left; vertical-align: top;" class="a"><small>{{location}}</small></h5>
-			<p>
-				<h4 style="color:white;" class="temp">{{temp}}&deg;</h4>
-        <span class="a" style="float: right; padding: 5px; vertical-align: top;"><small>{{desc}}</small></span>
-			</p>
+      <span class="a" style="float: right; color:green; padding: 5px; vertical-align: top;"><small>{{desc}}</small></span>
+			<h2 style="color:white; vertical-align:bottom">{{temp}}&deg;</h2>
 		</div>
 	</div>
     </th>
     <th>
     <h5><small>ШИРОТА</small></h5>
-    <h4 style="color: white;"><center>{{ dbResult[dbResult.length-1]["lat"] }}</center></h4>
+    <h4 style="color: white;"><center><big></big></center></h4>
   </th>
     <th style="color: #6621ca;">
     <h5><small>ДОЛГОТА</small></h5>
-    <h4 style="color: white; "><center>{{ dbResult[dbResult.length-1]["lon"] }}</center></h4>
+    <h4 style="color: white; "><center><big></big></center></h4>
   </th>
     <td style="color: #6621ca;">
     <h5><small>СКОРОСТЬ</small></h5>
-    <h4 style="color: white; "><center>{{skorost}} км/час</center></h4>
+    <h3 style="color: white; "><center><big>{{skorost}} км/час</big></center></h3>
     </td>
   </tr uk-cover>
   <tr>
-  <th colspan="4" style="background-color:#6621ca; padding:0px; color: white; font-family: PF Din Text Cond Pro;"><h6 style="color:white">ТЕКУЩИЕ ПОКАЗАТЕЛИ</h6></th>
+  <th colspan="4" style="background-color:#6621ca; padding:0px; color: white; font-family: PF Din Text Cond Pro;"><h6 style="color:white"><big>ТЕКУЩИЕ ПОКАЗАТЕЛИ</big></h6></th>
 
-<th colspan="4" style="background-color:#6621ca; padding:0px; color: white; font-family: PF Din Text Cond Pro;"><h6 style="color:white">КОЛИЧЕСТВО ЯМ</h6></th>
+<th colspan="4" style="background-color:#6621ca; padding:0px; color: white; font-family: PF Din Text Cond Pro;"><h6 style="color:white"><big>КОЛИЧЕСТВО ЯМ</big></h6></th>
 </tr uk-cover>
   <tr>
     <th rowspan="2" colspan="2" style="color: #6621ca;">
     <h5 class="a"><small>УРОВЕНЬ</small></h5>
     <span class="a" style="color:green; float: right"><small>МАЛЕНЬКАЯ ЯМА</small></span>
-    <h1 style="color: white;"><center><big>{{ dbResult[dbResult.length-1]['level'] }}</big></center></h1>
+    <h1 style="color: white; font-size:600%;"><center><big>{{ level }}</big></center></h1>
     </th>
     <td>
     <h5 class="a"><small>ШИРИНА</small></h5>
     <span class="a" style="float: right;"><small>CM</small></span>
-    <h2 style="color: white;"><center>{{ dbResult[dbResult.length-1]['width'] }}</center></h2>
+    <h2 style="color: white;"><center>{{ width }}</center></h2>
     </td>
     <td>
     <h5 class="a"><small>ДЛИНА</small></h5>
@@ -187,9 +185,9 @@ export default {
   created() {
   	  let api="http://localhost:3000/images"
   	  this.axios.get(api).then((response) => {
-  		this.dbResult = response.data
+      this.dbResult = response.data;
 });
-navigator.geolocation.getCurrentPosition(pos => {
+      navigator.geolocation.getCurrentPosition(pos => {
 			console.log('got coordinates', pos.coords);
 			this.lat = pos.coords.latitude;
 			this.lon = pos.coords.longitude;
@@ -221,21 +219,28 @@ navigator.geolocation.getCurrentPosition(pos => {
 <style>
 body {
   background: black;
-  height: 650px;
+  height: 700px;
 }
 html{
-  line-height: 1;
+  line-height: 0.5;
 }
 h5, a, h6 {
 top: 0;
 color: #6621ca;
-font-family: Arial, sans-serif;
+font-family: Arial Narrow, sans-serif;
 }
 h6, h4, h5, h3, h1, h2, .a {
     top:0;
     padding: 5px;
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 0px;
+    font-family: Arial Narrow, sans-serif;
+}
+h1 {
+  font-size: 500%;
+}
+h2 {
+  font-size: 300%;
 }
 /* Clear floats after the columns */
 .row:after {
@@ -252,7 +257,6 @@ h6, h4, h5, h3, h1, h2, .a {
 h3 {
   vertical-align: top;
   color: #eca74c;
-  font-family: Arial, sans-serif;
 }
 .left {
     position: absolute;
@@ -274,7 +278,7 @@ th, td {
 }
 span {
   color: grey;
-  font-family: PF Din Text Cond Pro;
+  font-family: Arial Narrow, sans-serif
 
 }
 span .a {

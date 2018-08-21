@@ -8,13 +8,11 @@
   <tr>
     <td>
     <h5>ПОЛОЖЕНИЕ ЯМЫ</h5>
-    <button class="button"><small>Датчик 1</small></button>
+    <button class="button"><small>Левый</small></button>
 
-    <button class="button1"><small>Датчик 2</small></button>
+    <button class="button1"><small>Передний</small></button>
 
-    <button class="button1"><small>Датчик 3</small></button>
-    <button class="button1"><small>Датчик 4</small></button>
-    <button class="button1"><small>Датчик 5</small></button>
+    <button class="button1"><small>Правый</small></button>
 
   </td>
       <th rowspan="2" style="width:20%" align="right">
@@ -24,7 +22,7 @@
     <tr>
       <td>
         <h5>ПОСЛЕДНЯЯ ФИКСАЦИЯ</h5>
-        <h3 style="color:white">Маленькая яма в крайней левой полосе</h3>
+        <h3 style="color:white">Маленькая яма в крайней левой дороге</h3>
         <span class="a" style="color:#6621ca" uk-icon="calendar"></span>
         <h6 class="a" style="color:gray">07.08.2018</h6>
         <h6 class="a" style="color:gray"> | </h6>
